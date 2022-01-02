@@ -9,7 +9,11 @@ import ReactDom from "react-dom"; // Used For Rendering to index.html
 // as Upper Case.
 
 function Greeting() {
-  return <h1>Hello, This is My First Component</h1>;
+    return <h1>Hello, This is My First Component</h1>;
+}
+
+function Goodbye() {
+  return <h1>Hello, This is My First Component Bye</h1>;
 }
 
 // Now That We have created our component, we must add it to the
@@ -31,4 +35,6 @@ function Greeting() {
     ReactDom.render(<Source />, Destination)
 */
 
-ReactDom.render(<Greeting />, document.getElementById("root"));
+// ReactDom.render(<Greeting />, document.getElementById("root"));
+
+export {Greeting, Goodbye};

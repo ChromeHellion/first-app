@@ -1,0 +1,13 @@
+JSX Rules:
+1. Always Return Just a Single Element
+2. Since We are Returing only one element, It is the best practice to
+   make use of the HTML5 Rules or semantics.
+   Since we are returning only 1 element, make sure to separate it out like
+   section / div / article, etc
+
+   P.S: Best practice is to use React Fragments.
+3. Use camelCase for HTML5 attributes like "onClick" instead of "onclick"
+4. Use "className" instead of "class" as in JSX, classes are available for us to use
+5. You must close each and every element.
+   <img...> should be <img.../>
+6. Returns Should be Well formatted. Use Parenthesis to Enclose.
