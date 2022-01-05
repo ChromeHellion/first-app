@@ -1,0 +1,57 @@
+Props are genrally used to send values to functions which allow us to 
+change key values and properties in the function.
+For Example:
+In this case, we are hard-coding the values of the author, image, etc.
+But in 99% of cases, it is best to actually send values to functions and rendering
+it out there, compared to simply hard-coding them in.
+
+To aid in this, we use the concept of props.
+
+General Syntax Of Props (Properties)
+The Name in the Parameters Can be anything. But Using Props is the General Convention.
+const Book = (props) => {
+    console.log(props)
+    return (
+        <article className="book">
+            <img src={imageLink} alt="" />
+            <h2>{title}</h2>
+            <h4>{author}</h4>
+        </article>
+    );
+};
+
+
+To send Values To The Book Function, You must Send the values in the same place where you are 
+rendering the object;
+
+Syntax
+function BookList() {
+    return (
+        <section className="booklist">
+            <Book <propName> = <property>/>
+        </section>
+    );
+}
+
+
+
+
+Concept of Children:
+Between the opening and closing tags of our component, we can add more JSX.
+To access this JSX, we must use the special keyword 'children' when destructing 
+our props.
+
+Also Add a Unique Id to the Items you are sestructing in the Render Method.
+function BookList() {
+    return (
+        <section className="booklist">
+            {books.map(book => {
+                // Destructing The 'book'
+                const {imageLink, author, title} = book;
+                return <Book key = {book.id} propsBook={book} />;
+                // We assign propsBook which becomes an object inside props
+                // We use key to make sure the entities are unique.
+            })}
+        </section>
+    );
+}
