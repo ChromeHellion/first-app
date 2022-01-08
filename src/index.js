@@ -3,9 +3,8 @@ import ReactDom from "react-dom";
 import "./index.css";
 
 // Components
-import {books} from "./Data/books.js";
-import Book from "./Components/Book.js"
-
+import {books} from "./Data/books.js"; // Named Export
+import Book from "./Components/Book.js"; // Unnamed Export
 
 function BookList() {
     return (
