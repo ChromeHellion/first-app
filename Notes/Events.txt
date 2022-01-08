@@ -1,0 +1,96 @@
+To set up events in React, you need just 2 things.
+1. Attribute
+2. Event Handler
+
+Unlike Standard JS, here you have to use camelCase for 
+eventHandler.
+
+The syntax for which is like:
+-> onclick = No  onClick = Yes
+-> onmousehover = No  onMouseHover = Yes
+
+Example:
+
+Reference Way of Making eventHandlers
+const Book = props => {
+    const {imageLink, author, title} = props;
+    const clickHandler = () => {
+        alert("Hello World");
+    }
+    return (
+        <article className="book">
+            <img src={imageLink} alt="" />
+            <h2>{title}</h2>
+            <h4>{author}</h4>
+            <button type='button' onClick={clickHandler}>Reference Example</button>
+        </article>
+    );
+};
+
+Inline Way of Making Event Handlers.
+const Book = props => {
+    const {imageLink, author, title} = props;
+    return (
+        <article className="book">
+            <img src={imageLink} alt="" />
+            <h2>{title}</h2>
+            <h4>{author}</h4>
+            <button type='button' onClick={() => console.log("Hello World")}>Inline Example</button>
+        </article>
+    );
+};
+
+
+GOTCHA:
+It has issue when you pass any sort of value into it (Event Listner)
+
+const Book = props => {
+    const {imageLink, author, title} = props;
+    const clickHandler = () => {
+        alert("Hello World");
+    }
+    const complexExample (author) => {
+        console.log(author);
+    }
+    return (
+        <article className="book">
+            <img src={imageLink} alt="" />
+            <h2>{title}</h2>
+            <h4>{author}</h4>
+            <button type='button' onClick={clickHandler}>Reference Example</button>
+            <button type='button' onClick={complexExample}>More Complex Example</button>
+        </article>
+    );
+};
+
+Here, the names of the authors get rendered on the console as soon as the page loads up itself.
+Technically it did console log it, but it did not do it when we wanted it to.
+
+Solution:
+Make it an arrow function.
+const Book = props => {
+    const {imageLink, author, title} = props;
+    const clickHandler = () => {
+        alert("Hello World");
+    }
+    const complexExample (author) => {
+        console.log(author);
+    }
+    return (
+        <article className="book">
+            <img src={imageLink} alt="" />
+            <h2>{title}</h2>
+            <h4>{author}</h4>
+            <button type='button' onClick={clickHandler}>Reference Example</button>
+            <button type='button' onClick={() => complexExample}>More Complex Example</button>
+        </article>
+    );
+};
+
+
+In these handler functions, we can pass the event object
+const clickHandler = (e) => {
+    alert("Hello World");
+    console.log(e)
+}
+This will be helpful when working with targets for inputs.
